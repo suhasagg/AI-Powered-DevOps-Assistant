@@ -1,0 +1,3 @@
+scrape_configs:
+  - job_name: assistant
+    static_configs: [{targets: ['assistant:8080']}]

@@ -1,0 +1,14 @@
+fastapi>=0.115
+uvicorn[standard]>=0.30
+pydantic>=2.8
+langchain>=0.3
+langchain-openai>=0.2
+crewai>=0.80
+openai>=1.50
+chromadb>=0.5
+prometheus-client>=0.20
+boto3>=1.35
+PyGithub>=2.4
+httpx>=0.27
+structlog>=24.4
+pytest>=8.3

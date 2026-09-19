@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: ai-devops-assistant}
+spec:
+  replicas: 3
+  selector: {matchLabels: {app: ai-devops-assistant}}
+  template:
+    metadata: {labels: {app: ai-devops-assistant}}
+    spec:
+      serviceAccountName: ai-devops-assistant
+      containers:
+      - name: api
+        image: your-registry/ai-devops-assistant:latest
+        ports: [{containerPort: 8080}]
+        resources:
+          requests: {cpu: 250m, memory: 256Mi}
+          limits: {cpu: '1', memory: 1Gi}
+        readinessProbe: {httpGet: {path: /health, port: 8080}, initialDelaySeconds: 3}
+---
+apiVersion: v1
+kind: Service
+metadata: {name: ai-devops-assistant}
+spec:
+  selector: {app: ai-devops-assistant}
+  ports: [{port: 80, targetPort: 8080}]
