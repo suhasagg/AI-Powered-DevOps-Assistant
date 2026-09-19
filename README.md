@@ -1,4 +1,4 @@
-# AI-Powered DevOps Assistant — Principal+ Reference Architecture
+# AI-Powered DevOps Assistant — Reference Architecture
 
 A production-oriented reference implementation of an **agentic DevOps control plane**. Four specialized agents analyze code/security, CI/CD health, infrastructure capacity, and incidents. LangChain/OpenAI and CrewAI are integration points for reasoning and collaboration; deterministic software owns authorization and execution boundaries.
 
@@ -169,9 +169,9 @@ Replace the in-process orchestrator with durable workflows; add PostgreSQL for w
 
 Implement real security scanners (CodeQL/Semgrep/Trivy/Grype/Checkov etc.) as independent deterministic tools and feed their results to the Code Analyzer. Do not ask an LLM to substitute for those scanners.
 
-## 17. Principal/Staff interview discussion
+## 17. Principal+ discussion
 
-Be prepared to defend: why LLMs are outside the authorization boundary; how you prevent prompt injection from repositories/logs; at-least-once semantics and idempotent mutations; how rollback verification works; agent conflict resolution; stale telemetry and retrieval freshness; tenant isolation; model/provider failure; fleet-wide incident load shedding; model/cost routing; auditability; regional cells; change-management integration; and how you prove a new model is safer before enabling actions.
+Explanation of : why LLMs are outside the authorization boundary; how you prevent prompt injection from repositories/logs; at-least-once semantics and idempotent mutations; how rollback verification works; agent conflict resolution; stale telemetry and retrieval freshness; tenant isolation; model/provider failure; fleet-wide incident load shedding; model/cost routing; auditability; regional cells; change-management integration; and how you prove a new model is safer before enabling actions.
 
 The strongest design principle is simple: **reason probabilistically, authorize deterministically, execute narrowly, verify empirically, and audit everything.**
 
